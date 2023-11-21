@@ -5,6 +5,8 @@ import './index.css'
 import Home from './routes/Home.jsx';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 import CreateAd from './routes/CreateAd.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const router = createBrowserRouter([
   {

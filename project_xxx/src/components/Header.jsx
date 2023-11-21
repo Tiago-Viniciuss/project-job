@@ -70,12 +70,10 @@ const Header = () => {
                 <input type="search" name="searchItem" id="searchItem" placeholder='Qual emprego estás a procurar?'/>
             </div>
             <button className='material-symbols-outlined' id='searchButton' onClick={searchItem}>search</button>
-            <button id='showFilters' onClick={showFilters}>Filters <span className='material-symbols-outlined' id='filterSymbol'>tune</span></button>
-            <div id='filter'>
-                <form onSubmit={handleSubmit}>
-                    <input type="search" name="" id="" placeholder='Em qual cidade?'/>   
-                <div>
-                    <select name="" id="">
+            <button className='btn btn-dark' id='showFilters' onClick={showFilters}>Filters <span className='material-symbols-outlined' id='filterSymbol'>tune</span></button>
+                <form id='filter' onSubmit={handleSubmit} className='form-control bg-dark text-white p-3 shadow-lg'>
+                    <input className='form-control' type="search" name="" id="" placeholder='Em qual cidade?'/>   
+                    <select className='form-control' name="" id="adDate">
                             <optgroup>
                                 <option value="">Mais Recentes</option>
                                 <option value="">Últimas 24h</option>
@@ -83,7 +81,6 @@ const Header = () => {
                                 <option value="">Mais Antigos</option>   
                             </optgroup>
                     </select>
-                </div>
                 <div>
                     <fieldset id='jobsType'>
                     <legend>Tipos de Vaga</legend>
@@ -144,9 +141,8 @@ const Header = () => {
                         </label>
                     </fieldset>
                 </div>
-                    <input type="submit" value="Buscar Vagas" id='searchJobButton' onClick={searchJob}/>
+                    <input type="submit" value="Buscar Vagas" className='btn btn-light btn-sm' id='searchJobButton' onClick={searchJob}/>
                 </form>
-            </div>
         </header>
         <nav id='menuNavigation'>
             <button id='closeMenu' className='material-symbols-outlined' onClick={closeMenu}>close</button>

@@ -22,6 +22,7 @@
 #searchBox {
     background-color: black;
     height: 0px;
+    font-size: .8em;
     transition: .3s;
     visibility: hidden;
     overflow-y: hidden;
@@ -79,15 +80,13 @@
 #filter {
     background-color: black;
     color: white;
-    padding: 20px;
-    border-radius: 10px;
     width: 0px;
-    box-shadow: 3px 3px 5px grey;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: left;
+    gap: 2px;
     position: fixed;
     top: 95px;
     left: 15px;
@@ -107,22 +106,34 @@
     width: 150px;
     height: 130px;
     border-radius: 5px;
+    margin-bottom: 5px;
     font-size: .7em;
     display: flex;
     flex-direction: column;
 }
 
-#filter #jobsType {
-    height: 90px;
+#filter legend {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0px;
 }
 
-#filter #contractType {
+#filter #jobsType {
     height: 110px;
 }
 
 #searchJobButton {
     width: 100%;
     cursor: pointer;
+}
+
+#filter input:first-child {
+    font-size: .8em;
+    margin: 5px;
+}
+
+#adDate {
+    font-size: .8em;
 }
 
 #openMenu {
@@ -179,12 +190,12 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    
 }
 
 #navigationLinks a {
     color: white;
     font-size: 1.2em;
+    text-decoration: none;
 }
 
 #changeLanguage {
@@ -246,8 +257,9 @@
 }
 
 #footer.expand {
-    height: 100px;
+    height: 80px;
     visibility: visible;
+    padding-bottom: 15px;
 }
 
 #navFooter {
@@ -286,4 +298,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .footerButton a {
+    font-size: 1.5em;
+    text-decoration: none;
+  }
+
+  #footer label {
+    font-size: 0.7em;
   }

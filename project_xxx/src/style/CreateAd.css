@@ -1,0 +1,20 @@
+#createAd {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#createAd fieldset {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#createAd legend {
+    text-align: center;
+    font-size: 1em;
+}
+
+#escolherCategoria {
+    text-align: center;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import '../style/CreateAd.css'
 
 
 const CreateAd = () => {
@@ -94,7 +95,7 @@ const CreateAd = () => {
             Criar Vaga
         </h1>
         
-        <form id='criarAnuncio' onSubmit={handleSubmit}>
+        <form className='form-control' id='createAd' onSubmit={handleSubmit}>
           <div>
             <label htmlFor="adTitle">Título do anúncio</label> <br />
             <input type="text" className='form-control' name="adTitle" id="adTitle" />
@@ -104,24 +105,52 @@ const CreateAd = () => {
             <input type="text" className='form-control' name="adPrice" id="adPrice" />
           </div>
           <div>
-            <label htmlFor="escolherCategoria">Escolher Categoria</label> <br />
+            <label htmlFor="escolherCategoria">Ramo de Atuação</label> <br />
             <select name="escolherCategoria" id="escolherCategoria" className='form-control' onChange={handleCategoriaChange}>
               <option value="" disabled>-- Escolha uma categoria --</option>
-              <option value="vagas">Agricultura</option>
-              <option value="imoveis">Acessoria</option>
-              <option value="">IT</option>
-              <option value="tecnologia">Tecnologia</option>
-              <option value="vestuario">Vestuário</option>
-              <option value="brinquedos">Brinquedos</option>
-              <option value="livros">Livros</option>
+              <option value="adm">Administrativo e Secretariado</option>
+              <option value="agro">Agricultura e Jardinagem</option>
+              <option value="assistence">Assistente de Loja e Caixa</option>
+              <option value="callCenter">Call Center, Helpdesk e Telemarketing</option>
+              <option value="">Cargos Executivos</option>
+              <option value="">Comercial</option>
+              <option value="">Construção Civil</option>
+              <option value="count">Contabilidade, Fiscalidade e Finanças</option>
+              <option value="sports">Desportos e Fitness</option>
+              <option value="cleaning">Domésticos e Limpeza</option>
+              <option value="education">Formação, Ensino e Educação</option>
+              <option value="industrial">Industrial, Fabrico e Confecção Têxtil</option>
+              <option value="it">IT e Telecomunicações</option>
+              <option value="marketing">Marketing, Publicidade e Eventos</option>
+              <option value="hotel">Restauração, Hotelaria e Turismo</option>
+              <option value="security">Segurança e Vigilância</option>
+              <option value="socialService">Serviço Social e Voluntariado</option>
+              <option value="health">Saúde e Beleza</option>
+              <option value="other">Outros</option>
             </select> 
           </div>
           <div>
-          <fieldset id='jobsType'>
-                    <legend>Tipos de Vaga</legend>
+            <label htmlFor="cidade">Localidade</label> <br />
+            <input type="text" name='cidade' id='adCity' className='form-control' />
+          </div>
+          <div>
+            <legend>Tipo de Trabalho</legend>
+            <fieldset id='workPlace' className='form-control'>
                         <label>
-                        <input type="checkbox" name="categoria" value="all"/> Tudo
+                        <input type="checkbox" name="categoria" value="full-time"/> Presencial
                         </label>
+                        <label>
+                        <input type="checkbox" name="categoria" value="part-time"/> Remoto
+                        </label>
+                        <label>
+                        <input type="checkbox" name="categoria" value="internship"/> Híbrido
+                        </label>
+            </fieldset>
+          </div>
+            <div>
+                <legend>Tipos de Vaga</legend>
+                <fieldset id='jobsType' className='form-control'>
+                    
                         <label>
                         <input type="checkbox" name="categoria" value="full-time"/> Full-Time
                         </label>
@@ -131,29 +160,14 @@ const CreateAd = () => {
                         <label>
                         <input type="checkbox" name="categoria" value="internship"/> Estágio
                         </label>
-                    </fieldset>
-                </div>
-          <div>
-            <label htmlFor="cidade">Cidade</label>
-            <input type="text" name='cidade' id='adCity' className='form-control' />
-          </div>
+                </fieldset>
+            </div>
           <div>
             <label htmlFor="descricao">Descrição</label>
-            <textarea name="descricao" id="descricao" cols="45" rows="5" className='form-control' placeholder='Escreve o que gostarias de ler se fosse tu a ver este anúncio...'></textarea>
+            <textarea name="descricao" cols="45" rows="15" className='form-control' placeholder='Escreve aqui informações relevantes para o candidato, como a dinâmica da empresa, carga horária, preferências, responsabilidades, qualificações, etc.'></textarea>
           </div>
-          <div>
-            <label htmlFor="particular">Particular</label>
-            <input type="checkbox"  name='adType' value="particular" checked={selectedCheckBox === "particular"} onChange={()=> handleCheckBoxChange("particular")} id="particular"/>
-            <label htmlFor="particular">Profissional</label>
-            <input type="checkbox" name='adType' 
-            value="profissional" checked={selectedCheckBox === "profissional"} onChange={()=> handleCheckBoxChange("profissional")}  id="professional"/>
-          </div>
-    
-          <div>
             <input type="submit" value="Publicar" className='btn btn-dark form-control' onClick={criarAnuncio}/>
-          </div>
         </form>
-        
     </div>
   )
 }
