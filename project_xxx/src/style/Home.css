@@ -32,6 +32,10 @@
     visibility: visible;
 }
 
+#searchItem {
+    width: 220px;
+}
+
 #searchButton {
     background-color: transparent;
     color: white;
@@ -45,6 +49,80 @@
 #searchButton:hover, #searchButton:focus {
     border: black;
     outline: none;
+}
+
+#showFilters {
+    background-color: black;
+    color: white;
+    font-size: .8em;
+    margin: 15px auto;
+    box-shadow: 2px 2px 3px grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: fixed;
+    top: 40px;
+    left: 15px;
+    transition: .4s;
+}
+
+#filterSymbol {
+    font-size: 1em;
+}
+
+#showFilters:hover, #showFilters:focus {
+    border: black;
+    outline: none;
+}
+
+#filter {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 0px;
+    box-shadow: 3px 3px 5px grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    position: fixed;
+    top: 95px;
+    left: 15px;
+    visibility: hidden;
+    transition: .2s;
+    overflow-x: hidden;
+    z-index: 30;
+}
+
+#filter.showFilters {
+    width: 200px;
+    visibility: visible;
+}
+
+
+#filter fieldset {
+    width: 150px;
+    height: 130px;
+    border-radius: 5px;
+    font-size: .7em;
+    display: flex;
+    flex-direction: column;
+}
+
+#filter #jobsType {
+    height: 90px;
+}
+
+#filter #contractType {
+    height: 110px;
+}
+
+#searchJobButton {
+    width: 100%;
+    cursor: pointer;
 }
 
 #openMenu {
@@ -87,6 +165,7 @@
     visibility: hidden;
     transition: .2s;
     overflow-x: hidden;
+    z-index: 50;
 }
 
 #menuNavigation.opened {
@@ -115,6 +194,7 @@
     top: 80px;
     right: 0; 
 }
+
 
 #containerFooter {
     display: flex;
@@ -154,7 +234,7 @@
     height: 0px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     position: fixed;
     bottom: 0;
@@ -162,7 +242,7 @@
     visibility: hidden;
     transition: 1s;
     overflow-y: hidden;
-    z-index: 15;
+    z-index: 35;
 }
 
 #footer.expand {
@@ -201,6 +281,7 @@
   }
   
   .footerButton {
+    width: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
