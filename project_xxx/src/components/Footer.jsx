@@ -35,7 +35,7 @@ const Footer = () => {
                 <label htmlFor="favorite">Favoritos</label>
             </div>
             <div className='footerButton'>
-                <Link className='material-symbols-outlined' name='add' id='add' to={"criar-anuncio"}>add</Link>
+                <Link className='material-symbols-outlined' name='add' id='add' to={"/create-ad"}>add</Link>
                 <label htmlFor="add">Anunciar</label> 
             </div>
             <div className='footerButton'>

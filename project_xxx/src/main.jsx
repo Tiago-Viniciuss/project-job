@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import Home from './routes/Home.jsx';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
+import CreateAd from './routes/CreateAd.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home/>,
+      },
+      {
+        path: "create-ad",
+        element: <CreateAd/>,
       },
     ]
   },
