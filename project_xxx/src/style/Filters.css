@@ -1,0 +1,69 @@
+#filter {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 75px 10px 25px 10px;
+    margin-bottom: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#showFilters {
+    font-size: .6em;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+#openFilters {
+    display: flex;
+    height: 0px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: top;
+    text-align: left;
+    visibility: hidden;
+    transition: 1s;
+    overflow-y: hidden;
+}
+
+#openFilters.showFilters {
+    visibility: visible;
+    height: 370px;
+    padding: 15px;
+}
+
+#inputOptions {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+#inputOptions input::placeholder {
+    font-size: .7em;
+}
+
+#filter fieldset {
+    width: 130px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: .6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+#filter legend {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 5px 0px;
+}
+
+#searchJobButton {
+    width: 98%;
+    cursor: pointer;
+}

@@ -24,24 +24,22 @@ const CreateAd = () => {
     let descricao = document.getElementById('descricao')
     let adTypes = document.getElementsByName('adType')
 
-    let adType = ''
+    //let adType = ''
     
 
-    if (adTypes[0].checked) {
+    /*if (adTypes[0].checked) {
       adType = 'particular'
     } else {
       adType = 'profissional'
-    }
+    }*/
 
 
     let adTitle = String(title.value) 
-    let adPrice = Number(price.value)
     let adCategory = String(category.value)
     let adLocation = String(location.value)
     let adDescription = String(descricao.value)
 
     localStorage.setItem('tituloAnuncio', adTitle)
-    localStorage.setItem('precoProduto', adPrice)
     localStorage.setItem('categoriaAnuncio', adCategory)
     localStorage.setItem('cidadeAnuncio', adLocation)
     localStorage.setItem('descricaoAnuncio', adDescription)
@@ -164,7 +162,7 @@ const CreateAd = () => {
             </div>
           <div>
             <label htmlFor="descricao">Descrição</label>
-            <textarea name="descricao" cols="45" rows="15" className='form-control' placeholder='Escreve aqui informações relevantes para o candidato, como a dinâmica da empresa, carga horária, preferências, responsabilidades, qualificações, etc.'></textarea>
+            <textarea id='descricao' name="descricao" cols="45" rows="15" className='form-control' placeholder='Escreve aqui informações relevantes para o candidato, como a dinâmica da empresa, carga horária, preferências, responsabilidades, qualificações, etc.'></textarea>
           </div>
             <input type="submit" value="Publicar" className='btn btn-dark form-control' onClick={criarAnuncio}/>
         </form>

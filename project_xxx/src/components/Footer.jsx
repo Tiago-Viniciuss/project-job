@@ -17,7 +17,7 @@ const Footer = () => {
         const openFooterButton = document.getElementById('openFooter')
 
         footer.classList.toggle('expand')
-        openFooterButton.style.display = 'block'
+        openFooterButton.style.display = 'flex'
     }
 
   return (

@@ -1,4 +1,5 @@
 
+
 #header {
     width: 100vw;
     height: 50px;
@@ -17,123 +18,6 @@
 #brandTitle {
     color: white;
     font-size: 1.2em;
-}
-
-#searchBox {
-    background-color: black;
-    height: 0px;
-    font-size: .8em;
-    transition: .3s;
-    visibility: hidden;
-    overflow-y: hidden;
-}
-
-#searchBox.visible {
-    height: 25px;
-    visibility: visible;
-}
-
-#searchItem {
-    width: 220px;
-}
-
-#searchButton {
-    background-color: transparent;
-    color: white;
-    font-size: 1em;
-    margin: 5px;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-#searchButton:hover, #searchButton:focus {
-    border: black;
-    outline: none;
-}
-
-#showFilters {
-    background-color: black;
-    color: white;
-    font-size: .8em;
-    margin: 15px auto;
-    box-shadow: 2px 2px 3px grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    position: fixed;
-    top: 40px;
-    left: 15px;
-    transition: .4s;
-}
-
-#filterSymbol {
-    font-size: 1em;
-}
-
-#showFilters:hover, #showFilters:focus {
-    border: black;
-    outline: none;
-}
-
-#filter {
-    background-color: black;
-    color: white;
-    width: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    gap: 2px;
-    position: fixed;
-    top: 95px;
-    left: 15px;
-    visibility: hidden;
-    transition: .2s;
-    overflow-x: hidden;
-    z-index: 30;
-}
-
-#filter.showFilters {
-    width: 200px;
-    visibility: visible;
-}
-
-
-#filter fieldset {
-    width: 150px;
-    height: 130px;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    font-size: .7em;
-    display: flex;
-    flex-direction: column;
-}
-
-#filter legend {
-    font-size: 1em;
-    font-weight: bold;
-    margin: 0px;
-}
-
-#filter #jobsType {
-    height: 110px;
-}
-
-#searchJobButton {
-    width: 100%;
-    cursor: pointer;
-}
-
-#filter input:first-child {
-    font-size: .8em;
-    margin: 5px;
-}
-
-#adDate {
-    font-size: .8em;
 }
 
 #openMenu {
@@ -214,14 +98,21 @@
 }
 
 #openFooter {
-    background-color: transparent;
-    font-size: 1.3em;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    font-size: 1.4em;
     position: fixed;
     bottom: 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 #openFooter:hover, #openFooter:focus {
-    background-color: transparent;
+    background-color: white;
     border: white;
     outline: none;
 }
