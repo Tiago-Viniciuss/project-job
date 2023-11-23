@@ -50,7 +50,7 @@ const JobBox = () => {
                   Salvar
                 </p>
                 <span className='material-symbols-outlined' id='saveJobSymbol'>
-                  bookmark
+                  bookmark_add
                 </span>
               </button>
               <button id='applyCV'>

@@ -104,7 +104,11 @@
     gap: 10px;
 }
 
-#loginButtons button {
+#loginButtons a {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;

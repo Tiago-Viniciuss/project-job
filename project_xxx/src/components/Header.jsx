@@ -48,15 +48,21 @@ const Header = () => {
             <div id='navigationLinks'>
                 <Link to={'/'}  onClick={closeMenuNav}>Home</Link>
                 <Link to={'/company-profile'}>Área da Empresa</Link>
-                <Link>Perfil do Candidato</Link>
+                <Link to={'/candidate-profile'}>Perfil do Candidato</Link>
                 <Link>Guida de Carreira</Link>
                 <Link>Anuncie Aqui</Link>
                 <Link>Notícias</Link>
                 
             </div>
             <div id='loginButtons'>
-                <button> <span className="material-symbols-outlined">login</span>Login Empresa</button>
-                <button> <span className="material-symbols-outlined">login</span>Login Candidato</button>
+                <Link to={''}>
+                    <span className="material-symbols-outlined">login
+                    </span>Login Empresa
+                </Link>
+                <Link to={'/candidate-profile'}> 
+                    <span className="material-symbols-outlined">login
+                    </span>Login Candidato
+                </Link>
             </div>
         </nav>
     </div>
