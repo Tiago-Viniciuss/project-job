@@ -20,8 +20,8 @@ const Filters = () => {
         
     }
 
-    function openFilters() {
-        const filters = document.getElementById('openFilters')
+    function showFilters() {
+        const filters = document.getElementById('showFilters')
 
         filters.classList.toggle('showFilters')
     }
@@ -29,23 +29,23 @@ const Filters = () => {
 
   return (
     <div>
-        <form id='filter' onSubmit={handleSubmit}>
-            <div id='inputOptions'>
-                <input className='form-control' type="search" name=""  placeholder='Qual a vaga?'/>
-                <input className='form-control' type="search" name=""  placeholder='Em qual cidade?'/>
-                <button id='showFilters' onClick={openFilters}>Filtros</button>
+        <form id='searchJob' onSubmit={handleSubmit}>
+            <div id='searchOptions'>
+                <input className='form-control' type="search" name="jobTitle"  placeholder='Qual a vaga?'/>
+                <input className='form-control' type="search" name="jobLocation"  placeholder='Em qual cidade?'/>
+                <button id='showFiltersButton' onClick={showFilters}>Filtros</button>
             </div>
             <select className='form-control' name="" id="adDate">
                     <optgroup>
-                        <option value="">Mais Recentes</option>
-                        <option value="">Últimas 24h</option>
-                        <option value="">Última Semana</option>
-                        <option value="">Mais Antigos</option>
+                        <option value="most-recent">Mais Recentes</option>
+                        <option value="last-24">Últimas 24h</option>
+                        <option value="last-week">Última Semana</option>
+                        <option value="oldest">Mais Antigos</option>
                     </optgroup>
             </select>
-            <div id='openFilters'>
+            <div id='showFilters'>
                 <div>
-                    <fieldset id='jobsType'>
+                    <fieldset>
                     <legend>Tipos de Vaga</legend>
                         <label>
                         <input type="checkbox" name="categoria" value="all"/> Tudo
@@ -65,7 +65,7 @@ const Filters = () => {
                     </fieldset>
                 </div>
                 <div>
-                    <fieldset id='contractType'>
+                    <fieldset>
                     <legend>Tipos de Contrato</legend>
                         <label>
                         <input type="checkbox" name="categoria" value="all"/> Tudo
@@ -108,7 +108,7 @@ const Filters = () => {
                     </fieldset>
                 </div>
                 <div>
-                    <fieldset id='contractType'>
+                    <fieldset>
                     <legend>Nível de Escolaridade</legend>
                         <label>
                         <input type="checkbox" name="categoria" value="all"/> Tudo
@@ -128,7 +128,7 @@ const Filters = () => {
                     </fieldset>
                 </div>
                 <div>
-                    <fieldset id='contractType'>
+                    <fieldset>
                     <legend>Modalidade da Vaga</legend>
                         <label>
                         <input type="checkbox" name="categoria" value="all"/> Tudo
@@ -148,7 +148,7 @@ const Filters = () => {
                     </fieldset>
                 </div>
                 <div>
-                    <fieldset id='contractType'>
+                    <fieldset>
                     <legend>Horário de Trabalho</legend>
                         <label>
                         <input type="checkbox" name="categoria" value="all"/> Tudo
@@ -169,8 +169,7 @@ const Filters = () => {
                 </div>
             </div>
             <input type="submit" value="Buscar Vagas" className='btn btn-light btn-sm' id='searchJobButton' onClick={searchJob}/>
-        </form>
-               
+        </form>          
     </div>
   )
 }

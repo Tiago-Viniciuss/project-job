@@ -6,6 +6,7 @@ import Home from './routes/Home.jsx';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 import CreateAd from './routes/CreateAd.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CompanyProfile from './routes/CompanyProfile.jsx';
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "create-ad",
         element: <CreateAd/>,
+      },
+      {
+        path: "/company-profile",
+        element: <CompanyProfile/>,
       },
     ]
   },

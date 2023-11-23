@@ -55,22 +55,25 @@ const Header = () => {
         </header>
         <nav id='menuNavigation'>
             <button id='closeMenu' className='material-symbols-outlined' onClick={closeMenu}>close</button>
-            <div id='navigationLinks'>
-                <Link>Home</Link>
-                <Link>Área exclusiva</Link>
-                <Link>Categoria A</Link>
-                <Link>Categoria B</Link>
-                <Link>Categoria C</Link>
-                <Link>Categoria D</Link>
-                <Link>Categoria E</Link>
-                <Link>Categoria F</Link>
-            </div>
             <select name="changeLanguage" id="changeLanguage" className='item'>
                 <option value="portuguses">PT</option>
                 <option value="english">EN</option>
                 <option value="spanish">ES</option>
                 <option value="french">FR</option>
             </select>
+            <div id='navigationLinks'>
+                <Link>Home</Link>
+                <Link to={'/company-profile'}>Área da Empresa</Link>
+                <Link>Perfil do Candidato</Link>
+                <Link>Guida de Carreira</Link>
+                <Link>Anuncie Aqui</Link>
+                <Link>Notícias</Link>
+                
+            </div>
+            <div id='loginButtons'>
+                <button> <span className="material-symbols-outlined">login</span>Login Empresa</button>
+                <button> <span className="material-symbols-outlined">login</span>Login Candidato</button>
+            </div>
         </nav>
     </div>
   )
