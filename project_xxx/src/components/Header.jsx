@@ -21,28 +21,12 @@ const Header = () => {
         menuNav.classList.toggle('opened')
     }
 
-    
-    
-    
-    const handleSubmit = (event) => {
-        event.preventDefault();}
+    function closeMenuNav() {
+        const menuNav = document.getElementById('menuNavigation')
+        const buttonOpenMenu = document.getElementById('openMenu')
 
-    function showFilters() {
-        const filter = document.getElementById('filter')
-
-        filter.classList.toggle('showFilters')
-    }
-
-    function searchJob() {
-        const filter = document.getElementById('filter')
-
-        filter.classList.toggle('showFilters')
-    }
-
-    function closeFilters() {
-        const filter = document.getElementById('filter')
-
-        filter.classList.toggle('showFilters')
+        buttonOpenMenu.style.display = 'block'
+        menuNav.classList.toggle('opened')
     }
 
   return (
@@ -50,7 +34,7 @@ const Header = () => {
         <header id='header'>
             <button id='openMenu' className='material-symbols-outlined item' onClick={openMenu}>menu</button>
             <h1 id='brandTitle' className='item'>
-                Project X
+                <Link to={'/'}>EMPREGOS</Link>
             </h1>
         </header>
         <nav id='menuNavigation'>
@@ -62,7 +46,7 @@ const Header = () => {
                 <option value="french">FR</option>
             </select>
             <div id='navigationLinks'>
-                <Link>Home</Link>
+                <Link to={'/'}  onClick={closeMenuNav}>Home</Link>
                 <Link to={'/company-profile'}>Área da Empresa</Link>
                 <Link>Perfil do Candidato</Link>
                 <Link>Guida de Carreira</Link>

@@ -6,7 +6,7 @@ import Home from './routes/Home.jsx';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 import CreateAd from './routes/CreateAd.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CompanyProfile from './routes/CompanyProfile.jsx';
+import CompanyProfile from './routes/companyProfile.jsx';
 
 
 const router = createBrowserRouter([

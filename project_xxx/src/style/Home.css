@@ -23,6 +23,11 @@
     font-size: 1.2em;
 }
 
+#brandTitle a {
+    color: white;
+    text-decoration: none;
+}
+
 #openMenu {
     background-color: transparent;
     color: white;

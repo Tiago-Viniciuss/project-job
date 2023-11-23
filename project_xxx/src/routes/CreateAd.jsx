@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import '../style/CreateAd.css'
 
 
@@ -89,6 +90,9 @@ const CreateAd = () => {
 
   return (
     <div>
+      <Link to={'/company-profile'}>
+      <span className='material-symbols-outlined'>arrow_back_ios</span>
+      </Link>
         <h1 className='criarAnuncioTitulo'>
             Criar Vaga
         </h1>
