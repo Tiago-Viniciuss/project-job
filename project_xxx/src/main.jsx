@@ -8,6 +8,7 @@ import CreateAd from './routes/CreateAd.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CompanyProfile from './routes/companyProfile.jsx';
 import CandidateProfile from './routes/candidateProfile.jsx';
+import CreateProfile from './routes/createProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/candidate-profile",
         element: <CandidateProfile/>,
+      },
+      {
+        path: "/create-profile",
+        element: <CreateProfile/>,
       },
     ]
   },

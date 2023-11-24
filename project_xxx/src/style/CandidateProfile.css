@@ -1,0 +1,63 @@
+/*
+
+Form Login Profile
+
+*/
+
+#formPerfilUsuario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.loginPerfilh3 {
+    margin: auto;
+    width: 280px;
+}
+
+#formPerfilUsuario input {
+    width: 350px;
+}
+
+.criarConta {
+    margin-top: 15px;
+    color: black;
+}
+
+.esqueciSenha {
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+
+/*
+
+Form Create Profile
+
+*/
+
+#formCriarConta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.criarContah3 {
+    margin: auto;
+    width: 280px;
+    font-size: 2em;
+}
+
+#formCriarConta input {
+    width: 350px;
+}
