@@ -6,87 +6,51 @@ import '../style/CreateAd.css'
 
 const CreateAd = () => {
 
-    const [selectedCheckBox, setSelectedCheckbox] = useState(null);
-  
-    const handleCheckBoxChange = (value) => {
-      setSelectedCheckbox(value);
-    };
+
+  const [workPlaceSelected, setWorkPlaceSelected] = useState('')
+
+  const handleWorkPlaceChange = (event) => {
+
+    setWorkPlaceSelected(event.target.value)
+  }
+
+  const [jobTypeSelected, setJobTypeSelected] = useState('')
+
+  const handleJobTypeChange = (event) => {
+
+    setJobTypeSelected(event.target.value)
+  }
 
 
   const handleSubmit = (e) => {
     e.preventDefault() 
+    location.href = '/'
 }
 
-  function criarAnuncio() {
+  function createAd() {
     let title = document.getElementById('adTitle')
-    let price = document.getElementById('adPrice')
-    let category = document.getElementById('escolherCategoria')
+    let companyName = document.getElementById('companyName')
+    let category = document.getElementById('chooseCategory')
     let location = document.getElementById('adCity')
-    let descricao = document.getElementById('descricao')
-    let adTypes = document.getElementsByName('adType')
-
-    //let adType = ''
-    
-
-    /*if (adTypes[0].checked) {
-      adType = 'particular'
-    } else {
-      adType = 'profissional'
-    }*/
-
+    let description = document.getElementById('description')
 
     let adTitle = String(title.value) 
+    let adCompanyName = String(companyName.value)
     let adCategory = String(category.value)
     let adLocation = String(location.value)
-    let adDescription = String(descricao.value)
+    let adDescription = String(description.value)
 
-    localStorage.setItem('tituloAnuncio', adTitle)
-    localStorage.setItem('categoriaAnuncio', adCategory)
-    localStorage.setItem('cidadeAnuncio', adLocation)
-    localStorage.setItem('descricaoAnuncio', adDescription)
-    localStorage.setItem('tipoAnuncio', adType)
+    localStorage.setItem('adTitle', adTitle)
+    localStorage.setItem('companyName', adCompanyName)
+    localStorage.setItem('adCategory', adCategory)
+    localStorage.setItem('adLocation', adLocation)
+    localStorage.setItem('workPlace', workPlaceSelected)
+    localStorage.setItem('jobType', jobTypeSelected)
+    localStorage.setItem('adDescription', adDescription)
+
   }
-
-  const [selectedCategoria, setSelectedCategoria] = useState('');
-
-  const handleCategoriaChange = (event) => {
-    const categoriaSelecionada = event.target.value;
-    setSelectedCategoria(categoriaSelecionada);
-  };
-
-  const verifyCategory = () => {
-
-    let showCategory = document.getElementById('showCategory')
-    let carBar = document.getElementById('carBar')
-    let motoBar = document.getElementById('motoBar')
-    let truckBar = document.getElementById('truckBar')
-
-    switch (selectedCategoria) {
-      case 'carros':
-          showCategory.appendChild(carBar);
-          carBar.style.display = 'block';
-          motoBar.style.display = 'none';
-          truckBar.style.display = 'none';
-          break;
-
-      case 'motos':
-          showCategory.appendChild(motoBar);
-          motoBar.style.display = 'block';
-          carBar.style.display = 'none';
-          truckBar.style.display = 'none';
-          break;
-
-        case 'camioes':
-          showCategory.appendChild(truckBar);
-          truckBar.style.display = 'block';
-          motoBar.style.display = 'none';
-          carBar.style.display = 'none';
-          break;
-
-      default:
-        break;
-    }
-  }
+  
+  
 
   return (
     <div>
@@ -103,12 +67,12 @@ const CreateAd = () => {
             <input type="text" className='form-control' name="adTitle" id="adTitle" />
           </div>
           <div>
-            <label htmlFor="adPrice">Nome da Empresa</label> <br />
-            <input type="text" className='form-control' name="adPrice" id="adPrice" />
+            <label htmlFor="companyName">Nome da Empresa</label> <br />
+            <input type="text" className='form-control' name="companyName" id="companyName" />
           </div>
           <div>
-            <label htmlFor="escolherCategoria">Ramo de Atuação</label> <br />
-            <select name="escolherCategoria" id="escolherCategoria" className='form-control' onChange={handleCategoriaChange}>
+            <label htmlFor="chooseCategory">Ramo de Atuação</label> <br />
+            <select name="chooseCategory" id="chooseCategory" className='form-control'>
               <option value="" disabled>-- Escolha uma categoria --</option>
               <option value="adm">Administrativo e Secretariado</option>
               <option value="agro">Agricultura e Jardinagem</option>
@@ -139,13 +103,13 @@ const CreateAd = () => {
             <legend>Tipo de Trabalho</legend>
             <fieldset id='workPlace' className='form-control'>
                         <label>
-                        <input type="checkbox" name="categoria" value="full-time"/> Presencial
+                        <input type="checkbox" name="category" value="Presencial" checked={workPlaceSelected === 'Presencial'} onChange={handleWorkPlaceChange}/> Presencial
                         </label>
                         <label>
-                        <input type="checkbox" name="categoria" value="part-time"/> Remoto
+                        <input type="checkbox" name="category" value="Remoto" checked={workPlaceSelected === 'Remoto'} onChange={handleWorkPlaceChange}/> Remoto
                         </label>
                         <label>
-                        <input type="checkbox" name="categoria" value="internship"/> Híbrido
+                        <input type="checkbox" name="category" value="Híbrido" checked={workPlaceSelected === 'Híbrido'} onChange={handleWorkPlaceChange}/> Híbrido
                         </label>
             </fieldset>
           </div>
@@ -154,21 +118,21 @@ const CreateAd = () => {
                 <fieldset id='jobsType' className='form-control'>
                     
                         <label>
-                        <input type="checkbox" name="categoria" value="full-time"/> Full-Time
+                        <input type="checkbox" name="type" value="Full-Time" checked={jobTypeSelected === 'Full-Time'} onChange={handleJobTypeChange}/> Full-Time
                         </label>
                         <label>
-                        <input type="checkbox" name="categoria" value="part-time"/> Part-Time
+                        <input type="checkbox" name="type" value="Part-Time" checked={jobTypeSelected === 'Part-Time'} onChange={handleJobTypeChange}/> Part-Time
                         </label>
                         <label>
-                        <input type="checkbox" name="categoria" value="internship"/> Estágio
+                        <input type="checkbox" name="type" value="Estágio" checked={jobTypeSelected === 'Estágio'} onChange={handleJobTypeChange}/> Estágio
                         </label>
                 </fieldset>
             </div>
           <div>
-            <label htmlFor="descricao">Descrição</label>
-            <textarea id='descricao' name="descricao" cols="45" rows="15" className='form-control' placeholder='Escreve aqui informações relevantes para o candidato, como a dinâmica da empresa, carga horária, preferências, responsabilidades, qualificações, etc.'></textarea>
+            <label htmlFor="description">Descrição</label>
+            <textarea id='description' name="description" cols="45" rows="15" className='form-control' placeholder='Escreve aqui informações relevantes para o candidato, como a dinâmica da empresa, carga horária, preferências, responsabilidades, qualificações, etc.'></textarea>
           </div>
-            <input type="submit" value="Publicar" className='btn btn-dark form-control' onClick={criarAnuncio}/>
+            <input type="submit" value="Publicar" className='btn btn-dark form-control' onClick={createAd}/>
         </form>
     </div>
   )

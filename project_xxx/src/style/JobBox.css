@@ -15,14 +15,14 @@
     padding: 15px;
   }
 
-  #jobTitle {
+  #jobTitleContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding-bottom: 25px;
   }
 
-  #jobTitle h1 {
+  #jobTitle {
     font-size: 1.5em;
     margin: 0;
     text-align: center;

@@ -10,22 +10,22 @@ const CreateProfile = () => {
     }
 
 
-    function salvarDados() {
+    function saveData() {
 
-      let nome = document.getElementById('userName')
+      let name = document.getElementById('userName')
       let email = document.getElementById('userEmail')
-      let senha = document.getElementById('userPassword')
+      let password = document.getElementById('userPassword')
 
-      let nomeGuardado = String(nome.value)
-      let emailGuardado = String(email.value)
-      let senhaGuardada = String(senha.value)
+      let storageName = String(name.value)
+      let storageEmail = String(email.value)
+      let storagePassword = String(password.value)
 
-      if (nomeGuardado.length != 0 && emailGuardado.length != 0 && senhaGuardada.length != 0) {
-        alert(`Parabéns, ${nomeGuardado}, sua conta foi criada!`)
-        localStorage.setItem ('nome', nomeGuardado)
-        localStorage.setItem ('email', emailGuardado)
-        localStorage.setItem ('senha', senhaGuardada)
-        location.href = '/perfil-do-usuario';
+      if (storageName.length != 0 && storageEmail.length != 0 && storagePassword.length != 0) {
+        alert(`Parabéns, ${storageName}, sua conta foi criada!`)
+        localStorage.setItem ('name', storageName)
+        localStorage.setItem ('email', storageEmail)
+        localStorage.setItem ('password', storagePassword)
+        location.href = '/candidate-profile';
       } else {
         alert (`Preencha os dados corretamente!`)
       }
@@ -38,16 +38,16 @@ const CreateProfile = () => {
 
   return (
     <div>
-        <h3 className='criarContah3'>Seja bem-vindo ao Projeto City!</h3>
-        <form id='formCriarConta' onSubmit={handleSubmit}>
+        <h3 className='createAccountTitle'>Seja bem-vindo ao Emprego!</h3>
+        <form id='formCreateAccount' onSubmit={handleSubmit}>
             <input className='form-control' type="text" name="userName" id="userName" placeholder='Digite seu nome completo' required  autoComplete='userName'/>
 
-            <input className='form-control' type="email" name="userEmail" id="userEmail" placeholder='Digite seu melhor email' required/>
+            <input className='form-control' type="email" name="userEmail" id="userEmail" placeholder='Digite seu melhor email' autoComplete='userEmail' required/>
 
             <input className='form-control' type="password" name="userPassword" id="userPassword" placeholder='Crie uma senha com letras e números' autoComplete='current-password' required pattern="^(?=.*[a-z])(?=.*[0-9]).{8,}$"
              title="A senha deve conter letras minúsculas, números e no mínimo 8 caracteres" />
 
-            <input onClick={salvarDados} className='btn btn-dark' type="submit" value="Criar Conta" />
+            <input onClick={saveData} className='btn btn-dark' type="submit" value="Criar Conta" />
             
         </form>
     </div>

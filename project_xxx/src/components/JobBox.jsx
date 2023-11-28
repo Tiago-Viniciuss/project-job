@@ -1,7 +1,49 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import '../style/JobBox.css'
 
 const JobBox = () => {
+
+  const [jobTitle, setJobtitle] = useState('')
+
+  useEffect(() => {
+    let storedJobTitle = localStorage.getItem('adTitle')
+    setJobtitle(storedJobTitle)
+  }, [])
+
+  const [companyName, setCompanyName] = useState('')
+
+  useEffect(() => {
+    let storedCompanyName = localStorage.getItem('companyName')
+    setCompanyName(storedCompanyName)
+  }, [])
+
+  const [workPlace, setWorkPlace] = useState('')
+
+  useEffect(()=> {
+    let storedWorkPlace = localStorage.getItem('workPlace')
+    setWorkPlace(storedWorkPlace)
+  }, [])
+
+  const [jobType, setJobType] = useState('')
+
+  useEffect(()=> {
+    let storedJobType = localStorage.getItem('jobType')
+    setJobType(storedJobType)
+  }, [])
+
+  const [jobLocation, setJobLocation] = useState('')
+
+  useEffect(()=> {
+    let storedLocation = localStorage.getItem('adLocation')
+    setJobLocation(storedLocation)
+  }, [])
+
+  const [description, setDescription] = useState('')
+
+  useEffect(()=> {
+    let storedDescription = localStorage.getItem('adDescription')
+    setDescription(storedDescription)
+  }, [])
 
   function saveJob() {
     const saveButton = document.getElementById('saveJobButton')
@@ -16,32 +58,30 @@ const JobBox = () => {
       } else {
         saveTitle.innerText = 'Salvar'
         saveSymbol.innerText = 'bookmark_add'
-      }
-      
-      
+      }   
   }
 
   return (
     <div>
-        <main id='jobs'>
+        <main id='jobs' >
           <div id='jobBox'>
-              <div id='jobTitle'>
-                <h1>Auxiliar de Almoxarifado</h1>
-                <h6>Continente LTDA.</h6>
+              <div id='jobTitleContainer'>
+                <h1 id='jobTitle'>{jobTitle}</h1>
+                <h6 id='companyName'>{companyName}</h6>
               </div>
             <div id='jobInfo'>
               <ul>
-                <li id='workPlace'> <span className='material-symbols-outlined'>badge</span> Presencial</li>
-                <li id='jobsType'> <span className='material-symbols-outlined'>schedule</span> Part-time</li>
-                <li id='jobsTerm'> <span className='material-symbols-outlined'>contract</span> A Termo</li>
-                <li id='jobLocation'> <span className='material-symbols-outlined'>location_on</span> Lisboa</li>
+                <li id='workPlace'> <span className='material-symbols-outlined'>badge</span> {workPlace}</li>
+                <li id='jobType'> <span className='material-symbols-outlined'>schedule</span> {jobType}</li>
+                <li id='jobTerm'> <span className='material-symbols-outlined'>contract</span> A Termo</li>
+                <li id='jobLocation'> <span className='material-symbols-outlined'>location_on</span> {jobLocation}</li>
                 <li id='jobDate'> <span className='material-symbols-outlined'>calendar_today</span> 22/11/2023</li>
               </ul>
               <div id='jobImage' className='material-symbols-outlined'>apartment</div>
             </div>
             <div id='companyDescription'>
                 <p>
-                  Rede de Supermercados a nível nacional com grande impacto e influência na vida dos consumidores.
+                  {description}
                 </p>
             </div>
             <div id='saveApplyButtons'>

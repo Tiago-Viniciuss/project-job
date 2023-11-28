@@ -20,17 +20,16 @@ const CandidateProfile = ({userEmail}) => {
     
     }
 
-    function fazerLogin() {
+    function login() {
       let email = document.getElementById('userEmail')
-      let senha = document.getElementById('userPassword')
-      let saudacao = document.getElementById('saudacao')
+      let password = document.getElementById('userPassword')
 
       let emailCheck = String(email.value)
-      let senhaCheck = String(senha.value)
-      let emailGuardado = localStorage.getItem('email')
-      let senhaGuardada = localStorage.getItem('senha')
+      let passwordCheck = String(password.value)
+      let emailStored = localStorage.getItem('email')
+      let passwordStored = localStorage.getItem('password')
 
-      if(emailCheck == emailGuardado && senhaCheck == senhaGuardada) {
+      if(emailCheck == emailStored && passwordCheck == passwordStored) {
         location.href = '/'
 
     } else {
@@ -41,19 +40,19 @@ const CandidateProfile = ({userEmail}) => {
 
   return (
     <div>
-        <h3 className='loginPerfilh3'>
+        <h3 className='loginProfileTitle'>
             Faça login e aproveite cada funcionalidade:
         </h3>
-        <form onSubmit={handleSubmit} id='formPerfilUsuario'>
+        <form onSubmit={handleSubmit} id='formCandidateProfile'>
             <input className='form-control' type="email" name="userEmail" id="userEmail" placeholder='Digite seu email' onChange={handleUserEmail} autoComplete='userEmail'/>
             <input className='form-control' type="password" name="userPassword" id="userPassword" placeholder='Insira sua senha' autoComplete='current-password'/>
-            <input onClick={fazerLogin} className='btn btn-dark' type="submit" value="Entrar" />
+            <input onClick={login} className='btn btn-dark' type="submit" value="Entrar" />
              
         </form>
         <Link to="/create-profile">
-            <p className='criarConta'>Não tem cadastro? Crie sua conta aqui</p>
+            <p className='createAccount'>Não tem cadastro? Crie sua conta aqui</p>
         </Link>
-        <p className='esqueciSenha'>Esqueceste-te da password?</p>
+        <p className='forgetPassword'>Esqueceste-te da password?</p>
     </div>
   )
 }

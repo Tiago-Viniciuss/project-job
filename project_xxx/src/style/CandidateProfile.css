@@ -4,7 +4,7 @@ Form Login Profile
 
 */
 
-#formPerfilUsuario {
+#formCandidateProfile {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,21 +17,21 @@ a {
     text-decoration: none;
 }
 
-.loginPerfilh3 {
+.loginProfileTitle {
     margin: auto;
     width: 280px;
 }
 
-#formPerfilUsuario input {
+#formCandidateProfile input {
     width: 350px;
 }
 
-.criarConta {
+.createAccount {
     margin-top: 15px;
     color: black;
 }
 
-.esqueciSenha {
+.forgetPassword {
     margin-top: 5px;
     font-weight: 500;
 }
@@ -43,7 +43,7 @@ Form Create Profile
 
 */
 
-#formCriarConta {
+#formCreateAccount {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,12 +52,12 @@ Form Create Profile
     margin-top: 30px;
 }
 
-.criarContah3 {
+.createAccountTitle {
     margin: auto;
     width: 280px;
     font-size: 2em;
 }
 
-#formCriarConta input {
+#formCreateAccount input {
     width: 350px;
 }
