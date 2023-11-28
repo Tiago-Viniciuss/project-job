@@ -49,7 +49,7 @@ const Header = () => {
                 <Link to={'/'}  onClick={closeMenuNav}>Home</Link>
                 <Link to={'/company-profile'}>Área da Empresa</Link>
                 <Link to={'/candidate-profile'}>Perfil do Candidato</Link>
-                <Link>Guida de Carreira</Link>
+                <Link>Guia de Carreira</Link>
                 <Link>Anuncie Aqui</Link>
                 <Link>Notícias</Link>
                 
