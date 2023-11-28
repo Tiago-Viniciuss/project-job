@@ -55,7 +55,7 @@ const Header = () => {
                 
             </div>
             <div id='loginButtons'>
-                <Link to={''}>
+                <Link to={'/company-profile'}>
                     <span className="material-symbols-outlined">login
                     </span>Login Empresa
                 </Link>

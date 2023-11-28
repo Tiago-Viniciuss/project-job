@@ -1,0 +1,63 @@
+/*
+
+Form Login Profile
+
+*/
+
+#formCompanyProfile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.loginProfileTitle {
+    margin: auto;
+    width: 280px;
+}
+
+#formCompanyProfile input {
+    width: 350px;
+}
+
+.createCompanyAccount {
+    margin-top: 15px;
+    color: black;
+}
+
+.forgetPassword {
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+
+/*
+
+Form Create Profile
+
+*/
+
+#createCompanyAccount {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.createCompanyAccountTitle {
+    margin: auto;
+    width: 280px;
+    font-size: 2em;
+}
+
+#createCompanyAccount input {
+    width: 350px;
+}
