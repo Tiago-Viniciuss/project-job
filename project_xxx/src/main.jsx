@@ -26,19 +26,19 @@ const router = createBrowserRouter([
         element: <CreateAd/>,
       },
       {
-        path: "/company-profile",
+        path: "company-profile",
         element: <CompanyProfile/>,
       },
       {
-        path: "/candidate-profile",
+        path: "candidate-profile",
         element: <CandidateProfile/>,
       },
       {
-        path: "/create-profile",
+        path: "create-profile",
         element: <CreateProfile/>,
       },
       {
-        path: "/create-company-profile",
+        path: "create-company-profile",
         element: <CreateCompanyProfile/>,
       },
     ]
