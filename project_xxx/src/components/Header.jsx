@@ -47,7 +47,7 @@ const Header = () => {
             </select>
             <div id='navigationLinks'>
                 <Link to={'/'}  onClick={closeMenuNav}>Home</Link>
-                <Link to={'/company-profile'}>Área da Empresa</Link>
+                <Link to={'/company-profile-login'}>Área da Empresa</Link>
                 <Link to={'/candidate-profile'}>Perfil do Candidato</Link>
                 <Link>Guia de Carreira</Link>
                 <Link>Anuncie Aqui</Link>
@@ -55,7 +55,7 @@ const Header = () => {
                 
             </div>
             <div id='loginButtons'>
-                <Link to={'/company-profile'}>
+                <Link to={'/company-profile-login'}>
                     <span className="material-symbols-outlined">login
                     </span>Login Empresa
                 </Link>

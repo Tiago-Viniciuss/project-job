@@ -1,58 +1,39 @@
 import React from 'react'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import '../style/CompanyProfile.css'
+import JobBox from '../components/JobBox'
+
+const CompanyProfile = () => {
 
 
-const CompanyProfile = ({companyEmail}) => {
 
-    const [email, setEmail] = useState(companyEmail)
-
-    const handleCompanyEmail = (e) => {
-        setEmail(e.target.value)
-      }
-
-    const handleSubmit = (e) => {
-        e.preventDefault() 
-    
-    
-    setEmail("")
-    
-    }
-
-    function login() {
-      let email = document.getElementById('companyEmail')
-      let password = document.getElementById('companyPassword')
-
-      let emailCheck = String(email.value)
-      let passwordCheck = String(password.value)
-      let emailStored = localStorage.getItem('companyEmail')
-      let passwordStored = localStorage.getItem('companyPassword')
-
-      if(emailCheck == emailStored && passwordCheck == passwordStored) {
-        location.href = '/'
-
-    } else {
-        alert('Usuário ou senha incorreto')
-    }
-
-    }
 
   return (
     <div>
-        <h3 className='loginProfileTitle'>
-            Crie vagas de emprego para sua empresa:
-        </h3>
-        <form onSubmit={handleSubmit} id='formCompanyProfile'>
-            <input className='form-control' type="email" name="companyEmail" id="companyEmail" placeholder='Digite seu email' onChange={handleCompanyEmail} autoComplete='companyEmail'/>
-            <input className='form-control' type="password" name="companyPassword" id="companyPassword" placeholder='Insira sua senha' autoComplete='current-password'/>
-            <input onClick={login} className='btn btn-dark' type="submit" value="Entrar" />
-             
-        </form>
-        <Link to="/create-company-profile">
-            <p className='createAccount'>Não tem cadastro? Crie sua conta aqui</p>
-        </Link>
-        <p className='forgetPassword'>Esqueceste-te da password?</p>
+        <div className='backgroundProfile' id='companyBrandPicture'>
+            
+        </div>
+        <h1>Jaguar Company</h1>
+        <h3>Categoria</h3>
+        <p>
+            <strong>Descrição</strong> <br/>
+                A Jaguar é uma marca britânica de automóveis de luxo e alto desempenho, com origens na produção de sidecars para motocicletas na década de 1920. Reconhecida por seu design elegante e inovação tecnológica, a Jaguar oferece uma gama de veículos, incluindo sedãs, SUVs e carros esportivos. Parte da Jaguar Land Rover, subsidiária da Tata Motors desde 2008, a marca tem uma história notável em competições automobilísticas e é conhecida por combinar conforto com desempenho em seus modelos.
+        </p>
+        <section id='localJobs'>
+            <JobBox/>
+        </section>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi deleniti libero eius. Eos odio ipsam illo, nemo, eveniet necessitatibus cumque optio illum numquam quia cum explicabo voluptas unde impedit sit?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo dolores tenetur ipsam voluptatibus porro laudantium iure inventore soluta, sunt neque fugiat, dolor saepe dolorum unde minus, ab officiis est magni?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quisquam, provident atque laboriosam consequatur doloremque, voluptas quasi ab est nobis, suscipit porro labore a necessitatibus consequuntur non quis ut? Perferendis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi deleniti libero eius. Eos odio ipsam illo, nemo, eveniet necessitatibus cumque optio illum numquam quia cum explicabo voluptas unde impedit sit?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo dolores tenetur ipsam voluptatibus porro laudantium iure inventore soluta, sunt neque fugiat, dolor saepe dolorum unde minus, ab officiis est magni?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quisquam, provident atque laboriosam consequatur doloremque, voluptas quasi ab est nobis, suscipit porro labore a necessitatibus consequuntur non quis ut? Perferendis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi deleniti libero eius. Eos odio ipsam illo, nemo, eveniet necessitatibus cumque optio illum numquam quia cum explicabo voluptas unde impedit sit?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo dolores tenetur ipsam voluptatibus porro laudantium iure inventore soluta, sunt neque fugiat, dolor saepe dolorum unde minus, ab officiis est magni?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quisquam, provident atque laboriosam consequatur doloremque, voluptas quasi ab est nobis, suscipit porro labore a necessitatibus consequuntur non quis ut? Perferendis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi deleniti libero eius. Eos odio ipsam illo, nemo, eveniet necessitatibus cumque optio illum numquam quia cum explicabo voluptas unde impedit sit?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo dolores tenetur ipsam voluptatibus porro laudantium iure inventore soluta, sunt neque fugiat, dolor saepe dolorum unde minus, ab officiis est magni?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quisquam, provident atque laboriosam consequatur doloremque, voluptas quasi ab est nobis, suscipit porro labore a necessitatibus consequuntur non quis ut? Perferendis.
+        </p>
     </div>
   )
 }

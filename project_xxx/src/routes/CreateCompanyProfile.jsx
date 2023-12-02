@@ -25,7 +25,7 @@ const CreateCompanyProfile = () => {
         localStorage.setItem ('companyName', storageName)
         localStorage.setItem ('companyEmail', storageEmail)
         localStorage.setItem ('companyPassword', storagePassword)
-        location.href = '/company-profile';
+        location.href = '/company-profile-login';
       } else {
         alert (`Preencha os dados corretamente!`)
       }

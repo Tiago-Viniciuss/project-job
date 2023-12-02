@@ -6,10 +6,11 @@ import Home from './routes/Home.jsx';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 import CreateAd from './routes/CreateAd.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CompanyProfile from './routes/companyProfile.jsx';
 import CandidateProfile from './routes/candidateProfile.jsx';
 import CreateProfile from './routes/createProfile.jsx';
 import CreateCompanyProfile from './routes/CreateCompanyProfile.jsx';
+import CompanyProfileLogin from './routes/CompanyProfileLogin.jsx';
+import CompanyProfile from './routes/CompanyProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,8 +27,8 @@ const router = createBrowserRouter([
         element: <CreateAd/>,
       },
       {
-        path: "company-profile",
-        element: <CompanyProfile/>,
+        path: "company-profile-login",
+        element: <CompanyProfileLogin/>,
       },
       {
         path: "candidate-profile",
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "create-company-profile",
         element: <CreateCompanyProfile/>,
+      },
+      {
+        path: "company-profile",
+        element: <CompanyProfile/>,
       },
     ]
   },
