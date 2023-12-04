@@ -54,9 +54,6 @@ const CreateAd = () => {
 
   return (
     <div>
-      <Link to={'/company-profile'}>
-      <span className='material-symbols-outlined'>arrow_back_ios</span>
-      </Link>
         <h1 className='criarAnuncioTitulo'>
             Criar Vaga
         </h1>
