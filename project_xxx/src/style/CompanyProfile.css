@@ -23,7 +23,7 @@ a {
 }
 
 #formCompanyProfile input {
-    width: 350px;
+    width: 100%;
 }
 
 .createCompanyAccount {
@@ -59,7 +59,7 @@ Form Create Profile
 }
 
 #createCompanyAccount input {
-    width: 350px;
+    width: 100%;
 }
 
 .backgroundProfile {
