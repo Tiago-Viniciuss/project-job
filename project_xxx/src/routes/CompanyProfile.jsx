@@ -1,23 +1,67 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CreateAd from '../routes/CreateAd'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const CompanyProfile = () => {
 
+      const [companyTitle, setCompanyTitle] = useState('')
 
+      useEffect(()=> {
+        const companyTitleStored = localStorage.getItem('companyTitle')
+
+        setCompanyTitle((companyTitleStored))
+      })
+
+      let [companyCategory, setCompanyCategory] = useState('')
+
+      useEffect(()=> {
+        let companyCategoryStored = localStorage.getItem('companyCategory')
+        setCompanyCategory((companyCategoryStored))
+      })
+
+      const [companyDescription, setCompanyDescription] = useState('')
+
+      useEffect(()=> {
+        const CompanyDescriptionStored = localStorage.getItem('companyDescription')
+
+        setCompanyDescription((CompanyDescriptionStored))
+      })
+
+
+      function openContainer() {
+        const createAd = document.getElementById('createAdContainer')
+        const  button = document.getElementById('createJobsButton')
+
+        createAd.classList.toggle('active')
+
+        if (createAd.className == 'active') {
+          button.style.display = 'none'
+        } else {
+          button.style.display = 'block'
+        }
+        
+      }
 
 
   return (
-    <div>
-        <div className='backgroundProfile' id='companyBrandPicture'>
-            
-        </div>
-        <h1>Jaguar Company</h1>
-        <h3>Categoria</h3>
-        <p>
+    <div id='companyProfileInfo'>
+      <Header/>
+        <h1 id='companyTitle'>{companyTitle}</h1>
+        <h3 id='companyCategory'>{companyCategory}</h3>
+        <p id='companyDescription'>
             <strong>Descrição</strong> <br/>
-                A Jaguar é uma marca britânica de automóveis de luxo e alto desempenho, com origens na produção de sidecars para motocicletas na década de 1920. Reconhecida por seu design elegante e inovação tecnológica, a Jaguar oferece uma gama de veículos, incluindo sedãs, SUVs e carros esportivos. Parte da Jaguar Land Rover, subsidiária da Tata Motors desde 2008, a marca tem uma história notável em competições automobilísticas e é conhecida por combinar conforto com desempenho em seus modelos.
+                {companyDescription}
         </p>
-        <CreateAd/>
+        <section id='createJobs'>
+          <button className='btn btn-dark' id='createJobsButton' onClick={openContainer}>
+            Criar Vaga de Emprego
+          </button>
+          <div id='createAdContainer'>
+              <CreateAd/>
+          </div>
+        </section>
+        <Footer/>
     </div>
   )
 }

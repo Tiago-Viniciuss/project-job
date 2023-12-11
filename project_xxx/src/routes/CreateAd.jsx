@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import '../style/CreateAd.css'
+
 
 
 const CreateAd = () => {
@@ -22,17 +22,19 @@ const CreateAd = () => {
   }
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault() 
-    location.href = '/'
-}
+  
 
-  function createAd() {
+  function createAd(e) {
+
+    e.preventDefault() 
+    
+    let createAd = document.getElementById('createAd')
     let title = document.getElementById('adTitle')
     let companyName = document.getElementById('companyName')
     let category = document.getElementById('chooseCategory')
     let location = document.getElementById('adCity')
     let description = document.getElementById('description')
+    let  button = document.getElementById('createJobsButton')
 
     let adTitle = String(title.value) 
     let adCompanyName = String(companyName.value)
@@ -40,25 +42,39 @@ const CreateAd = () => {
     let adLocation = String(location.value)
     let adDescription = String(description.value)
 
-    localStorage.setItem('adTitle', adTitle)
-    localStorage.setItem('companyName', adCompanyName)
-    localStorage.setItem('adCategory', adCategory)
-    localStorage.setItem('adLocation', adLocation)
-    localStorage.setItem('workPlace', workPlaceSelected)
-    localStorage.setItem('jobType', jobTypeSelected)
-    localStorage.setItem('adDescription', adDescription)
+    if (adTitle.length != 0 && adCompanyName.length  != 0 && adCategory.length !=0 && adLocation.length != 0 && adDescription.length != 0) {
+      localStorage.setItem('adTitle', adTitle)
+      localStorage.setItem('companyName', adCompanyName)
+      localStorage.setItem('adCategory', adCategory)
+      localStorage.setItem('adLocation', adLocation)
+      localStorage.setItem('workPlace', workPlaceSelected)
+      localStorage.setItem('jobType', jobTypeSelected)
+      localStorage.setItem('adDescription', adDescription)
 
-  }
-  
+      createAd.style.visibility = 'hidden'
+      
+      createAd.classList.toggle('active')
+
+      if (createAd.className == 'active') {
+          button.style.display = 'none'
+      } else {
+          button.style.display = 'block'
+      }
+    } else {
+      alert('Preencha todos os campos!')
+    }
+
+    }
   
 
   return (
     <div>
+        
+        <form className='form-control' id='createAd' onSubmit={createAd}>
         <h1 className='criarAnuncioTitulo'>
             Criar Vaga
         </h1>
         
-        <form className='form-control' id='createAd' onSubmit={handleSubmit}>
           <div>
             <label htmlFor="adTitle">Título do anúncio</label> <br />
             <input type="text" className='form-control' name="adTitle" id="adTitle" />
@@ -129,7 +145,7 @@ const CreateAd = () => {
             <label htmlFor="description">Descrição</label>
             <textarea id='description' name="description" cols="45" rows="15" className='form-control' placeholder='Escreve aqui informações relevantes para o candidato, como a dinâmica da empresa, carga horária, preferências, responsabilidades, qualificações, etc.'></textarea>
           </div>
-            <input type="submit" value="Publicar" className='btn btn-dark form-control' onClick={createAd}/>
+            <input type="submit" value="Publicar" className='btn btn-dark form-control'/>
         </form>
     </div>
   )

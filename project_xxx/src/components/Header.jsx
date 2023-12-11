@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import '../style/Home.css'
 
 
@@ -29,6 +30,21 @@ const Header = () => {
         menuNav.classList.toggle('opened')
     }
 
+    const navigate = useNavigate();
+
+    const handleCompanyProfileClick = () => {
+    const companyTitle = localStorage.getItem('companyTitle');
+    const companyEmail = localStorage.getItem('companyEmail');
+
+    if (companyTitle && companyEmail) {
+      navigate('/company-profile');
+    } else {
+      navigate('/company-profile-login');
+    }
+  };
+
+  
+    
   return (
     <div>
         <header id='header'>
@@ -47,7 +63,7 @@ const Header = () => {
             </select>
             <div id='navigationLinks'>
                 <Link to={'/'}  onClick={closeMenuNav}>Home</Link>
-                <Link to={'/company-profile-login'}>Área da Empresa</Link>
+                <Link onClick={handleCompanyProfileClick}>Área da Empresa</Link>
                 <Link to={'/candidate-profile'}>Perfil do Candidato</Link>
                 <Link>Guia de Carreira</Link>
                 <Link>Anuncie Aqui</Link>
