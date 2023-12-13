@@ -1,15 +1,148 @@
 /*
 
+Candidate Profile
+
+*/
+#candidateInfo {
+    display: block;
+}
+
+#candidateInfo hr {
+    width: 80%;
+    margin: 15px auto;
+}
+
+
+#profilePicture {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-image: url(/images/profile-picture.jpeg);
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: auto;
+}
+
+#profilePicture span {
+    position: relative;
+    left: 45px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+#uploadPicture {
+    width: 200px;
+    margin: 5px auto;
+    flex-direction: column;
+    gap: 5px;
+
+    display: none;
+}
+
+#uploadPicture.show {
+    display: flex;
+}
+
+#uploadProfilePicture {
+    visibility: hidden;
+}
+
+#uploadPicture label {
+    color: black;
+}
+
+#uploadPicture button {
+    width: 100%;
+    margin: auto;
+}
+
+/*
+
+Edit Candidate Profile
+
+*/
+
+#candidateOptionsBar {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+}
+
+#candidateOptionsBar button {
+    font-size: 0.5em;
+    border-radius: 15px 15px 0px 0px;
+    color: white;
+    margin: 0px;
+    border-bottom-width: 0px;
+}
+
+#editCandidateProfile {
+    display: none;
+}
+
+#candidateOptionsBar #btn1 {
+    color: black;
+    background-color: white;
+    
+}
+
+#saveDataForm {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#birthday {
+    margin: 0px;
+}
+
+#birthday span {
+    position: relative;
+    left: 85px;
+}
+
+#candidateBirthday {
+    display: none;    
+}
+
+#location {
+    margin: 0px;
+}
+
+#location span {
+    position: relative;
+    left: 85px;
+}
+
+#candidateLocation {
+    display: none;
+}
+
+
+/*
+
 Form Login Profile
 
 */
 
+#candidateProfileLoginContainer {
+    width: 100%;
+}
+
 #formCandidateProfile {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 15px;
+    margin: auto;
     margin-top: 30px;
 }
 
@@ -23,7 +156,7 @@ a {
 }
 
 #formCandidateProfile input {
-    width: 350px;
+    width: 100%;
 }
 
 .createAccount {
@@ -44,6 +177,7 @@ Form Create Profile
 */
 
 #formCreateAccount {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,5 +193,5 @@ Form Create Profile
 }
 
 #formCreateAccount input {
-    width: 350px;
+    width: 100%;
 }

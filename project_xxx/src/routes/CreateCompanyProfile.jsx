@@ -47,7 +47,7 @@ const CreateCompanyProfile = () => {
 
 
   return (
-    <div>
+    <div id='createCompanyAccountContainer'>
         <h3 className='createCompanyAccountTitle'>Cadastre vossa empresa!</h3>
         <form id='createCompanyAccount' onSubmit={saveData}>
             <input className='form-control' type="text" name="companyName" id="companyTitle" placeholder='Digite o nome da empresa' required  autoComplete='companyName'/>

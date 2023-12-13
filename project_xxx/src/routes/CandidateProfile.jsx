@@ -1,58 +1,128 @@
-import React from 'react'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import '../style/CandidateProfile.css'
+import React, { useEffect, useState } from 'react'
+import CandidateOptionsBar from '../components/CandidateOptionsBar'
 
 
-const CandidateProfile = ({userEmail}) => {
+const CandidateProfile = () => {
 
-    const [email, setEmail] = useState(userEmail)
+  const [candidateName, setCandidateName] = useState('Usuário')
+  const [candidateBirthday, setCandidateBirthday] = useState('')
+  const [candidateBirthdayFormated, setCandidateBirthdayFormated] = useState('')
+  const [candidateLocation, setCandidateLocation] = useState('')
 
-    const handleUserEmail = (e) => {
-        setEmail(e.target.value)
-      }
+  useEffect(()=> {
+    const storedCandidateName = localStorage.getItem('name')
+    setCandidateName(storedCandidateName)
+  })
 
-    const handleSubmit = (e) => {
-        e.preventDefault() 
+  useEffect(() => {
+    const storedBirthday = localStorage.getItem('candidateBirthday')
+
+    setCandidateBirthdayFormated(storedBirthday)
+  })
+
+  useEffect(()=> {
+    const storedLocation = localStorage.getItem('candidateLocation')
+    const candidateLocation = document.getElementById('mainLocation')
+
+    setCandidateLocation(storedLocation)
+    candidateLocation.style.display = 'block'
+  })
+
+
+  function uploadPicture() {
+    const uploadBox = document.getElementById('uploadPicture')
+
+    uploadBox.classList.toggle('show')
+  }
+
+  function uploadDate() {
+    const dateBirthday = document.getElementById('candidateBirthday')
+    const editDate = document.getElementById('birthday')
+
+    dateBirthday.style.display = 'block'
+    editDate.style.display = 'none'
+  }
+
+  function uploadLocation() {
+    const candidateLocation = document.getElementById('candidateLocation')
+    const editLocation = document.getElementById('location')
     
+    editLocation.style.display = 'none'
+    candidateLocation.style.display = 'block'
     
-    setEmail("")
-    
-    }
+  }
 
-    function login() {
-      let email = document.getElementById('userEmail')
-      let password = document.getElementById('userPassword')
+  
+  function convertDate(candidateBirthday) {
+    const [ano, mes, dia] = candidateBirthday.split('-');
+    return `${dia}/${mes}/${ano}`;
+  }
 
-      let emailCheck = String(email.value)
-      let passwordCheck = String(password.value)
-      let emailStored = localStorage.getItem('email')
-      let passwordStored = localStorage.getItem('password')
+  function saveData(e) {
+    const formatedDate = convertDate(candidateBirthday)
+    const location = document.getElementById('candidateLocation')
+    const candidateLocation = String(location.value)
+    localStorage.setItem('candidateBirthday', formatedDate)
+    localStorage.setItem('candidateLocation', candidateLocation)
 
-      if(emailCheck == emailStored && passwordCheck == passwordStored) {
-        location.href = '/'
+  }
 
-    } else {
-        alert('Usuário ou senha incorreto')
-    }
-
-    }
+  
 
   return (
-    <div>
-        <h3 className='loginProfileTitle'>
-            Faça login e aproveite cada funcionalidade:
-        </h3>
-        <form onSubmit={handleSubmit} id='formCandidateProfile'>
-            <input className='form-control' type="email" name="userEmail" id="userEmail" placeholder='Digite seu email' onChange={handleUserEmail} autoComplete='userEmail'/>
-            <input className='form-control' type="password" name="userPassword" id="userPassword" placeholder='Insira sua senha' autoComplete='current-password'/>
-            <input onClick={login} className='btn btn-dark' type="submit" value="Entrar" />
-             
-        </form>
-        <Link to="/create-profile">
-            <p className='createAccount'>Não tem cadastro? Crie sua conta aqui</p>
-        </Link>
-        <p className='forgetPassword'>Esqueceste-te da password?</p>
+    <div id='candidateProfileContainer'>
+      <CandidateOptionsBar/>
+      <section id='candidateInfo'>
+      <h1>Seja Bem-vindo, <br /> {candidateName}!</h1>
+        <div id='profilePicture'>
+
+        </div>
+          <hr />
+          <p>{candidateName}</p>
+          <hr />
+          <div id='candidateBirthdayFormated'>
+            <p>{candidateBirthdayFormated}</p>
+            <hr />
+          </div>
+          <div id='mainLocation'>
+            <p>{candidateLocation}</p>
+            <hr />
+          </div>
+          <p>Profissão</p>
+          <hr />
+          <p>Escolaridade</p>
+          <hr />
+      </section>
+
+      <section id='editCandidateProfile'>
+          <h1>Editar Perfil do candidato</h1>
+          <div id='profilePicture'>
+          <span className='material-symbols-outlined' onClick={uploadPicture}>edit</span>
+        </div>
+          <div id='uploadPicture'>
+            <input type="file" name="uploadPicture" id="uploadProfilePicture" />
+            <label htmlFor="uploadProfilePicture" className='form-control'>Escolher nova foto</label>
+            <button className='btn btn-dark'>Atualizar Foto</button>
+          </div>
+          <form id='saveDataForm' onSubmit={saveData}>
+          <p className='form-control' id='birthday'>{candidateBirthdayFormated} <span className='material-symbols-outlined' onClick={uploadDate}>edit</span></p>
+          <input
+            type="date"
+            name="candidateBirthday"
+            id="candidateBirthday"
+            className='form-control'
+            value={candidateBirthday}
+            onChange={(e) => setCandidateBirthday(e.target.value)}/>
+            <p className='form-control' id='location'>{candidateLocation} <span className='material-symbols-outlined' onClick={uploadLocation}>edit</span></p>
+            <input type="text" name="candidateLocation" id="candidateLocation" className='form-control' placeholder='Onde você mora?'/>
+            <input type="text" name="candidateProfession" id="candidateProfession" className='form-control'/>
+            <button type='submit'>Guardar</button>
+          </form>
+      </section>
+
+      <section id='curriculumPage'>
+        <h1>Seu currículo</h1>
+      </section>
     </div>
   )
 }

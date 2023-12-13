@@ -4,6 +4,10 @@ Form Create Profile
 
 */
 
+#createCompanyAccountContainer {
+    width: 100%;
+}
+
 #createCompanyAccount {
     display: flex;
     flex-direction: column;
@@ -23,6 +27,9 @@ Form Create Profile
     width: 80%;
     margin: 70px 30px;
     text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #createCompanyAccount input {
@@ -38,11 +45,11 @@ Form Create Profile
 }
 
 #createAdContainer {
-    visibility: hidden;
+    display: none;
 }
 
 #createAdContainer.active {
-    visibility: visible;
+    display: block;
 }
 
 
@@ -53,6 +60,7 @@ Form Login Profile
 */
 
 #formCompanyProfile {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,6 +71,7 @@ Form Login Profile
 
 a {
     text-decoration: none;
+    color: black;
 }
 
 .loginProfileTitle {

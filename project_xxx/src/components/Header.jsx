@@ -30,7 +30,8 @@ const Header = () => {
         menuNav.classList.toggle('opened')
     }
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    const navigateCandidate = useNavigate()
 
     const handleCompanyProfileClick = () => {
     const companyTitle = localStorage.getItem('companyTitle');
@@ -43,6 +44,16 @@ const Header = () => {
     }
   };
 
+  const handleCandidateProfileClick = () => {
+    const candidateEmail = localStorage.getItem('name');
+    const candidatePassword = localStorage.getItem('password');
+
+    if (candidateEmail && candidatePassword) {
+      navigateCandidate('/candidate-profile');
+    } else {
+      navigateCandidate('/candidate-profile-login');
+    }
+  };
   
     
   return (
@@ -64,7 +75,7 @@ const Header = () => {
             <div id='navigationLinks'>
                 <Link to={'/'}  onClick={closeMenuNav}>Home</Link>
                 <Link onClick={handleCompanyProfileClick}>Área da Empresa</Link>
-                <Link to={'/candidate-profile'}>Perfil do Candidato</Link>
+                <Link onClick={handleCandidateProfileClick}>Perfil do Candidato</Link>
                 <Link>Guia de Carreira</Link>
                 <Link>Anuncie Aqui</Link>
                 <Link>Notícias</Link>
@@ -75,7 +86,7 @@ const Header = () => {
                     <span className="material-symbols-outlined">login
                     </span>Login Empresa
                 </Link>
-                <Link to={'/candidate-profile'}> 
+                <Link to={'/candidate-profile-login'}> 
                     <span className="material-symbols-outlined">login
                     </span>Login Candidato
                 </Link>

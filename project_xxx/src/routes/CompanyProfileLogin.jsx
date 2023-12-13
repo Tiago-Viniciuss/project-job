@@ -56,7 +56,9 @@ const CompanyProfileLogin = ({companyEmail}) => {
         <Link to="/create-company-profile">
             <p className='createAccount'>Não tem cadastro? Crie sua conta aqui</p>
         </Link>
-        <p className='forgetPassword'>Esqueceste-te da password?</p>
+        <Link to={'/forget-company-password'}>
+          <p className='forgetPassword'>Esqueceste-te da password?</p>
+        </Link>
     </div>
   )
 }
