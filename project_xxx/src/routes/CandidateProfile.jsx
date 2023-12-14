@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CandidateOptionsBar from '../components/CandidateOptionsBar'
+import Header from '../components/Header'
 
 
 const CandidateProfile = () => {
@@ -36,19 +37,19 @@ const CandidateProfile = () => {
   }
 
   function uploadDate() {
-    const dateBirthday = document.getElementById('candidateBirthday')
+    const uploadDate = document.getElementById('uploadDate')
     const editDate = document.getElementById('birthday')
 
-    dateBirthday.style.display = 'block'
+    uploadDate.style.display = 'block'
     editDate.style.display = 'none'
   }
 
   function uploadLocation() {
-    const candidateLocation = document.getElementById('candidateLocation')
+    const uploadLocation = document.getElementById('uploadLocation')
     const editLocation = document.getElementById('location')
     
     editLocation.style.display = 'none'
-    candidateLocation.style.display = 'block'
+    uploadLocation.style.display = 'block'
     
   }
 
@@ -58,19 +59,31 @@ const CandidateProfile = () => {
     return `${dia}/${mes}/${ano}`;
   }
 
-  function saveData(e) {
+  function saveDate() {
     const formatedDate = convertDate(candidateBirthday)
+    
+    localStorage.setItem('candidateBirthday', formatedDate)
+    
+
+  }
+
+  function saveLocation(e) {
+    e.preventDefault()
+    const uploadLocation = document.getElementById('uploadLocation')
+    const editLocation = document.getElementById('location')
     const location = document.getElementById('candidateLocation')
     const candidateLocation = String(location.value)
-    localStorage.setItem('candidateBirthday', formatedDate)
-    localStorage.setItem('candidateLocation', candidateLocation)
 
+    editLocation.style.display = 'block'
+    uploadLocation.style.display = 'none'
+    localStorage.setItem('candidateLocation', candidateLocation)
   }
 
   
 
   return (
     <div id='candidateProfileContainer'>
+      <Header/>
       <CandidateOptionsBar/>
       <section id='candidateInfo'>
       <h1>Seja Bem-vindo, <br /> {candidateName}!</h1>
@@ -104,19 +117,24 @@ const CandidateProfile = () => {
             <label htmlFor="uploadProfilePicture" className='form-control'>Escolher nova foto</label>
             <button className='btn btn-dark'>Atualizar Foto</button>
           </div>
-          <form id='saveDataForm' onSubmit={saveData}>
+          <form id='saveDataForm'>
           <p className='form-control' id='birthday'>{candidateBirthdayFormated} <span className='material-symbols-outlined' onClick={uploadDate}>edit</span></p>
-          <input
-            type="date"
-            name="candidateBirthday"
-            id="candidateBirthday"
-            className='form-control'
-            value={candidateBirthday}
-            onChange={(e) => setCandidateBirthday(e.target.value)}/>
+          <div id='uploadDate'>
+            <input
+              type="date"
+              name="candidateBirthday"
+              id="candidateBirthday"
+              className='form-control'
+              value={candidateBirthday}
+              onChange={(e) => setCandidateBirthday(e.target.value)}/>
+              <button className="btn btn-dark" onClick={saveDate}>Atualizar Data</button>
+          </div>
             <p className='form-control' id='location'>{candidateLocation} <span className='material-symbols-outlined' onClick={uploadLocation}>edit</span></p>
-            <input type="text" name="candidateLocation" id="candidateLocation" className='form-control' placeholder='Onde você mora?'/>
+            <div id='uploadLocation'>
+              <input type="text" name="candidateLocation" id="candidateLocation" className='form-control' placeholder='Onde você mora?'/>
+              <button className="btn btn-dark" onClick={saveLocation}>Atualizar Morada</button>
+            </div>
             <input type="text" name="candidateProfession" id="candidateProfession" className='form-control'/>
-            <button type='submit'>Guardar</button>
           </form>
       </section>
 

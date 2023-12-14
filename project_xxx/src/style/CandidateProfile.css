@@ -3,8 +3,13 @@
 Candidate Profile
 
 */
+
 #candidateInfo {
     display: block;
+}
+
+#candidateInfo h1 {
+    margin-top: 50px;
 }
 
 #candidateInfo hr {
@@ -65,10 +70,11 @@ Edit Candidate Profile
 */
 
 #candidateOptionsBar {
+    width: 100%;
     display: flex;
     flex-direction: row;
     position: fixed;
-    top: 0;
+    top: 50px;
     left: 0;
     background-color: black;
 }
@@ -84,6 +90,7 @@ Edit Candidate Profile
 #editCandidateProfile {
     display: none;
 }
+
 
 #candidateOptionsBar #btn1 {
     color: black;
@@ -107,8 +114,12 @@ Edit Candidate Profile
     left: 85px;
 }
 
-#candidateBirthday {
+#uploadDate {
     display: none;    
+}
+
+#uploadDate button {
+    width: 100%;
 }
 
 #location {
@@ -120,8 +131,12 @@ Edit Candidate Profile
     left: 85px;
 }
 
-#candidateLocation {
+#uploadLocation {
     display: none;
+}
+
+#uploadLocation button {
+    width: 100%;
 }
 
 
