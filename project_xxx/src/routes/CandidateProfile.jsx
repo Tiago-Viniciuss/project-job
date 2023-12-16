@@ -68,7 +68,6 @@ const CandidateProfile = () => {
   }
 
   function saveLocation(e) {
-    e.preventDefault()
     const uploadLocation = document.getElementById('uploadLocation')
     const editLocation = document.getElementById('location')
     const location = document.getElementById('candidateLocation')
@@ -117,29 +116,28 @@ const CandidateProfile = () => {
             <label htmlFor="uploadProfilePicture" className='form-control'>Escolher nova foto</label>
             <button className='btn btn-dark'>Atualizar Foto</button>
           </div>
-          <form id='saveDataForm'>
           <p className='form-control' id='birthday'>{candidateBirthdayFormated} <span className='material-symbols-outlined' onClick={uploadDate}>edit</span></p>
           <div id='uploadDate'>
-            <input
-              type="date"
-              name="candidateBirthday"
-              id="candidateBirthday"
-              className='form-control'
-              value={candidateBirthday}
-              onChange={(e) => setCandidateBirthday(e.target.value)}/>
-              <button className="btn btn-dark" onClick={saveDate}>Atualizar Data</button>
+            <form onSubmit={saveDate}>
+              <input
+              required
+                type="date"
+                name="candidateBirthday"
+                id="candidateBirthday"
+                className='form-control'
+                value={candidateBirthday}
+                onChange={(e) => setCandidateBirthday(e.target.value)}/>
+                <button type='submit' className="btn btn-dark" >Atualizar Data</button>
+            </form>
           </div>
             <p className='form-control' id='location'>{candidateLocation} <span className='material-symbols-outlined' onClick={uploadLocation}>edit</span></p>
             <div id='uploadLocation'>
-              <input type="text" name="candidateLocation" id="candidateLocation" className='form-control' placeholder='Onde você mora?'/>
-              <button className="btn btn-dark" onClick={saveLocation}>Atualizar Morada</button>
+              <form onSubmit={saveLocation}>
+                <input required type="text" name="candidateLocation" id="candidateLocation" className='form-control' placeholder='Onde você mora?'/>
+                <button type='submit' className="btn btn-dark" >Atualizar Morada</button>
+              </form>
             </div>
-            <input type="text" name="candidateProfession" id="candidateProfession" className='form-control'/>
-          </form>
-      </section>
-
-      <section id='curriculumPage'>
-        <h1>Seu currículo</h1>
+            <input type="text" name="candidateProfession" id="candidateProfession" className='form-control' placeholder='Qual a sua profissão?'/>
       </section>
     </div>
   )
