@@ -48,7 +48,7 @@ const CandidateOptionsBar = () => {
         button4.style.color = 'white'
         button5.style.color = 'white'
         candidateInfo.style.display = 'none'
-        editProfile.style.display = 'block'
+        editProfile.style.display = 'flex'
     }
 
     function changePage3() {

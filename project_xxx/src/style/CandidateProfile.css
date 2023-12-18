@@ -89,6 +89,8 @@ Edit Candidate Profile
 
 #editCandidateProfile {
     display: none;
+    flex-direction: column;
+    gap: 10px;
 }
 
 
@@ -105,13 +107,20 @@ Edit Candidate Profile
     gap: 5px;
 }
 
-#birthday {
-    margin: 0px;
+.editCandidateProfileContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
 }
 
-#birthday span {
-    position: relative;
-    left: 85px;
+.editCandidateProfileContainer span {
+    margin-right: 5px;
+}
+
+
+#birthday {
+    margin: 0px;
 }
 
 #uploadDate {
@@ -120,16 +129,13 @@ Edit Candidate Profile
 
 #uploadDate button {
     width: 100%;
+    margin: 5px 0px;
 }
 
 #location {
     margin: 0px;
 }
 
-#location span {
-    position: relative;
-    left: 85px;
-}
 
 #uploadLocation {
     display: none;
@@ -137,8 +143,34 @@ Edit Candidate Profile
 
 #uploadLocation button {
     width: 100%;
+    margin: 5px 0px;
 }
 
+#profession {
+    margin: 0px;
+}
+
+#uploadProfession {
+    display: none;
+}
+
+#uploadProfession button {
+    width: 100%;
+    margin: 5px 0px;
+}
+
+#education {
+    margin: 0px;
+}
+
+#uploadEducation {
+    display: none;
+}
+
+#uploadEducation button {
+    width: 100%;
+    margin: 5px 0px;
+}
 
 /*
 
@@ -207,6 +239,6 @@ Form Create Profile
     font-size: 2em;
 }
 
-#formCreateAccount input {
+#formCreateAccount button {
     width: 100%;
 }

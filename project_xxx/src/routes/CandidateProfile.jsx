@@ -9,6 +9,9 @@ const CandidateProfile = () => {
   const [candidateBirthday, setCandidateBirthday] = useState('')
   const [candidateBirthdayFormated, setCandidateBirthdayFormated] = useState('')
   const [candidateLocation, setCandidateLocation] = useState('')
+  const [candidateProfession, setCandidateProfession] = useState('')
+
+  const [candidateEducation, setCandidateEducation] = useState('')
 
   useEffect(()=> {
     const storedCandidateName = localStorage.getItem('name')
@@ -29,6 +32,22 @@ const CandidateProfile = () => {
     candidateLocation.style.display = 'block'
   })
 
+  useEffect(()=> {
+    const storedProfession = localStorage.getItem('candidateProfession')
+    const candidateProfession = document.getElementById('candidateProfession')
+
+    setCandidateProfession(storedProfession)
+    candidateProfession.style.display = 'block'
+  })
+
+  useEffect(()=> {
+    const storedEducation = localStorage.getItem('candidateEducation')
+    const candidateEducation = document.getElementById('candidateEducation')
+
+    setCandidateEducation(storedEducation)
+    candidateEducation.style.display = 'block'
+  })
+
 
   function uploadPicture() {
     const uploadBox = document.getElementById('uploadPicture')
@@ -38,7 +57,7 @@ const CandidateProfile = () => {
 
   function uploadDate() {
     const uploadDate = document.getElementById('uploadDate')
-    const editDate = document.getElementById('birthday')
+    const editDate = document.getElementById('birthdayContainer')
 
     uploadDate.style.display = 'block'
     editDate.style.display = 'none'
@@ -46,11 +65,27 @@ const CandidateProfile = () => {
 
   function uploadLocation() {
     const uploadLocation = document.getElementById('uploadLocation')
-    const editLocation = document.getElementById('location')
+    const editLocation = document.getElementById('locationContainer')
     
     editLocation.style.display = 'none'
     uploadLocation.style.display = 'block'
     
+  }
+
+  function uploadProfession() {
+    const uploadProfession = document.getElementById('uploadProfession')
+    const editProfession = document.getElementById('professionContainer')
+    
+    editProfession.style.display = 'none'
+    uploadProfession.style.display = 'block'
+  }
+
+  function uploadEducation() {
+    const uploadEducation = document.getElementById('uploadEducation')
+    const editEducation = document.getElementById('educationContainer')
+    
+    editEducation.style.display = 'none'
+    uploadEducation.style.display = 'block'
   }
 
   
@@ -78,6 +113,28 @@ const CandidateProfile = () => {
     localStorage.setItem('candidateLocation', candidateLocation)
   }
 
+  function saveProfession(e) {
+    const uploadProfession = document.getElementById('uploadProfession')
+    const editProfession = document.getElementById('professionContainer')
+    const profession = document.getElementById('candidateProfession')
+    const candidateProfession = String(profession.value)
+
+    editProfession.style.display = 'block'
+    uploadProfession.style.display = 'none'
+    localStorage.setItem('candidateProfession', candidateProfession)
+  }
+
+  function saveEducation(e) {
+    const uploadEducation = document.getElementById('uploadEducation')
+    const editEducation = document.getElementById('educationContainer')
+    const education = document.getElementById('candidateEducation')
+    const candidateEducation = String(education.value)
+
+    editEducation.style.display = 'block'
+    uploadEducation.style.display = 'none'
+    localStorage.setItem('candidateEducation', candidateEducation)
+  }
+
   
 
   return (
@@ -100,9 +157,9 @@ const CandidateProfile = () => {
             <p>{candidateLocation}</p>
             <hr />
           </div>
-          <p>Profissão</p>
+          <p>{candidateProfession}</p>
           <hr />
-          <p>Escolaridade</p>
+          <p>{candidateEducation}</p>
           <hr />
       </section>
 
@@ -116,7 +173,11 @@ const CandidateProfile = () => {
             <label htmlFor="uploadProfilePicture" className='form-control'>Escolher nova foto</label>
             <button className='btn btn-dark'>Atualizar Foto</button>
           </div>
-          <p className='form-control' id='birthday'>{candidateBirthdayFormated} <span className='material-symbols-outlined' onClick={uploadDate}>edit</span></p>
+          <div id='birthdayContainer' className='editCandidateProfileContainer'>
+            <p className='form-control' id='birthday'>{candidateBirthdayFormated} 
+            </p>
+            <span className='material-symbols-outlined' onClick={uploadDate}>edit</span>
+          </div>
           <div id='uploadDate'>
             <form onSubmit={saveDate}>
               <input
@@ -130,14 +191,46 @@ const CandidateProfile = () => {
                 <button type='submit' className="btn btn-dark" >Atualizar Data</button>
             </form>
           </div>
-            <p className='form-control' id='location'>{candidateLocation} <span className='material-symbols-outlined' onClick={uploadLocation}>edit</span></p>
+            <div id='locationContainer' className='editCandidateProfileContainer'>
+              <p className='form-control' id='location'>{candidateLocation} </p>
+              <span className='material-symbols-outlined' onClick={uploadLocation}>edit</span>
+            </div>
             <div id='uploadLocation'>
               <form onSubmit={saveLocation}>
                 <input required type="text" name="candidateLocation" id="candidateLocation" className='form-control' placeholder='Onde você mora?'/>
                 <button type='submit' className="btn btn-dark" >Atualizar Morada</button>
               </form>
             </div>
-            <input type="text" name="candidateProfession" id="candidateProfession" className='form-control' placeholder='Qual a sua profissão?'/>
+
+            <div id='professionContainer' className='editCandidateProfileContainer'>
+              <p className='form-control' id='profession'>{candidateProfession}</p>
+              <span className='material-symbols-outlined' onClick={uploadProfession}>edit</span>
+            </div>
+            <div id='uploadProfession'>
+              <form onSubmit={saveProfession}>
+                <input required type="text" name="candidateProfession" id="candidateProfession" className='form-control' placeholder='Qual a vossa profissão?'/>
+                <button type='submit' className="btn btn-dark" >Atualizar Profissão</button>
+              </form>
+            </div>
+
+            <div id='educationContainer' className='editCandidateProfileContainer'>
+              <p className='form-control' id='education'>{candidateEducation} </p>
+              <span className='material-symbols-outlined' onClick={uploadEducation}>edit</span>
+            </div>
+            <div id='uploadEducation'>
+              <form onSubmit={saveEducation}>
+              <select required name="candidateEducation" id="candidateEducation" className='form-control'>
+              <option value="Não qualificado">Não qualificado</option>
+              <option value="Qualificado">Qualificado</option>
+              <option value="Estudante">Estudante</option>
+              <option value="Ensino Superior">Ensino Superior</option>
+              <option value="Mestrado">Mestrado</option>
+              <option value="Licenciado">Licenciado</option>
+            </select>
+                <button type='submit' className="btn btn-dark" >Atualizar Escolaridade</button>
+              </form>
+            </div>
+
       </section>
     </div>
   )
